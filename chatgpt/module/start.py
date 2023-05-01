@@ -21,6 +21,6 @@ async def start_bot(c: Client, m: Message):
     user = {"name": first_name, "_id": user_id}
     
     await collection.update_one({"_id": user_id}, {"$set": user}, upsert=True)
-    start_welcome = f"Hey {m.from_user.mention}\n\nWelcome to my bot! Send me a message and I will use the OpenAI API to generate a response.\n\nExample `/ask hello world`"
-    start_button = InlineKeyboardMarkup([[InlineKeyboardButton("ADD ME", url=f"https://t.me/{c.me.username}?startgroup=True")]])
+    start_welcome = f"Hey {m.from_user.mention}\n\nWelcome to my bot! Send me a message and I will use the OpenAI API to generate a response.\n**ℹ️Example:** `/ask What is ChatGPT`\n\n**Join Below Channel or I won't Work for You!!**"
+    start_button = InlineKeyboardMarkup([[InlineKeyboardButton("𖥳 Powered by 𖥳", url="https://t.me/Anaavaran"), InlineKeyboardButton("✚ Add me", url="https://t.me/AvaGPTbot?startgroup=true")]])
     await m.reply_text(start_welcome, reply_markup=start_button)
